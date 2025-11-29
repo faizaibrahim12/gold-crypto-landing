@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import SearchBar from "./SearchBar";
+import CryptoPriceCard from "./CryptoPriceCard";
 import { ArrowRight, Shield, TrendingUp, Users } from "lucide-react";
 
 const HeroSection = () => {
@@ -24,69 +25,78 @@ const HeroSection = () => {
       />
 
       <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-8 animate-fade-in">
-            <Shield size={16} className="text-primary" />
-            <span className="text-sm text-primary font-medium">
-              Switzerland's Premier Crypto Community
-            </span>
-          </div>
+        {/* Main Hero Content */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+          {/* Left Side - Text Content */}
+          <div className="text-center lg:text-left">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-8 animate-fade-in">
+              <Shield size={16} className="text-primary" />
+              <span className="text-sm text-primary font-medium">
+                Switzerland's Premier Crypto Community
+              </span>
+            </div>
 
-          {/* Main Heading */}
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            Elevate Your{" "}
-            <span className="text-gradient-gold">Crypto Journey</span>{" "}
-            with Swiss Precision
-          </h1>
+            {/* Main Heading */}
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight animate-fade-in" style={{ animationDelay: '0.1s' }}>
+              International{" "}
+              <span className="text-gradient-gold">Swiss Crypto</span>{" "}
+              Club
+            </h1>
 
-          {/* Subtitle */}
-          <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Join an exclusive network of traders and investors. Access premium signals, 
-            expert education, and a community built on trust and excellence.
-          </p>
+            {/* Subtitle */}
+            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl mx-auto lg:mx-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              Join our exclusive community to access the world of cryptocurrency 
+              with premium signals and expert guidance.
+            </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            <Button variant="hero" size="xl" className="w-full sm:w-auto">
-              Get Started
-              <ArrowRight size={20} />
-            </Button>
-            <a href="#about">
-              <Button variant="heroOutline" size="xl" className="w-full sm:w-auto">
-                Learn More
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <Button variant="hero" size="xl" className="w-full sm:w-auto">
+                Get Started
+                <ArrowRight size={20} />
               </Button>
-            </a>
+              <a href="#about">
+                <Button variant="heroOutline" size="xl" className="w-full sm:w-auto">
+                  Learn More
+                </Button>
+              </a>
+            </div>
           </div>
 
-          {/* Search Bar */}
-          <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            <SearchBar />
+          {/* Right Side - Crypto Price Card */}
+          <div className="flex justify-center lg:justify-end animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <CryptoPriceCard />
           </div>
+        </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-6 mt-16 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.5s' }}>
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-2">
-                <Users size={20} className="text-primary mr-2" />
-                <span className="font-display text-2xl md:text-3xl font-bold text-foreground">5K+</span>
-              </div>
-              <span className="text-xs md:text-sm text-muted-foreground">Active Members</span>
+        {/* Search Bar */}
+        <div className="animate-fade-in max-w-3xl mx-auto" style={{ animationDelay: '0.5s' }}>
+          <SearchBar />
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-6 mt-16 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <div className="text-center">
+            <div className="flex items-center justify-center mb-2">
+              <Users size={20} className="text-primary mr-2" />
+              <span className="font-display text-2xl md:text-3xl font-bold text-foreground">5K+</span>
             </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-2">
-                <TrendingUp size={20} className="text-primary mr-2" />
-                <span className="font-display text-2xl md:text-3xl font-bold text-foreground">87%</span>
-              </div>
-              <span className="text-xs md:text-sm text-muted-foreground">Success Rate</span>
+            <span className="text-xs md:text-sm text-muted-foreground">Active Members</span>
+          </div>
+          <div className="text-center">
+            <div className="flex items-center justify-center mb-2">
+              <TrendingUp size={20} className="text-primary mr-2" />
+              <span className="font-display text-2xl md:text-3xl font-bold text-foreground">87%</span>
             </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-2">
-                <Shield size={20} className="text-primary mr-2" />
-                <span className="font-display text-2xl md:text-3xl font-bold text-foreground">4+</span>
-              </div>
-              <span className="text-xs md:text-sm text-muted-foreground">Years Trusted</span>
+            <span className="text-xs md:text-sm text-muted-foreground">Success Rate</span>
+          </div>
+          <div className="text-center">
+            <div className="flex items-center justify-center mb-2">
+              <Shield size={20} className="text-primary mr-2" />
+              <span className="font-display text-2xl md:text-3xl font-bold text-foreground">4+</span>
             </div>
+            <span className="text-xs md:text-sm text-muted-foreground">Years Trusted</span>
           </div>
         </div>
       </div>
