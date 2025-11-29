@@ -1,19 +1,32 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
+  // Sticky header
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Dark/Light mode toggle
+  useEffect(() => {
+    const body = document.body;
+    if (isDarkMode) {
+      body.classList.add("dark");
+      body.classList.remove("light");
+    } else {
+      body.classList.add("light");
+      body.classList.remove("dark");
+    }
+  }, [isDarkMode]);
 
   const navLinks = [
     { href: "#home", label: "Home" },
@@ -54,6 +67,15 @@ const Header = () => {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-4">
+            {/* Dark/Light toggle button */}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setIsDarkMode(!isDarkMode)}
+            >
+              {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
+            </Button>
+
             <a href="#login">
               <Button variant="ghost" size="sm">
                 Log in
@@ -92,6 +114,14 @@ const Header = () => {
               </a>
             ))}
             <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-border">
+              <Button
+                variant="outline"
+                className="w-full"
+                onClick={() => setIsDarkMode(!isDarkMode)}
+              >
+                {isDarkMode ? "Light Mode" : "Dark Mode"}
+              </Button>
+
               <a href="#login" onClick={() => setIsMobileMenuOpen(false)}>
                 <Button variant="outline" className="w-full">
                   Log in
